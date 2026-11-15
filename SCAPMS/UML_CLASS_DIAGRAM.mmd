@@ -1,0 +1,397 @@
+```mermaid
+classDiagram
+    %% ========================================================
+    %% MODEL LAYER
+    %% ========================================================
+
+    %% Appointable - abstract interface
+    class Appointable {
+        <<abstract>>
+        +virtual ~Appointable()
+        +virtual bool scheduleAppointment(string id, string date, string time) = 0
+        +virtual bool cancelAppointment(string id) = 0
+    }
+
+    %% PatientRecord - abstract base class
+    class PatientRecord {
+        <<abstract>>
+        -string patientId_
+        -string name_
+        -int age_
+        -string contact_
+        -vector~string~ appointmentIds_
+        +PatientRecord(string, string, int, string)
+        +virtual ~PatientRecord()
+        +const string& getPatientId() const
+        +const string& getName() const
+        +int getAge() const
+        +const string& getContact() const
+        +void setName(string)
+        +void setAge(int)
+        +void setContact(string)
+        +const vector~string~& getAppointmentIds() const
+        +void addAppointmentId(string)
+        +void removeAppointmentId(string)
+        +bool hasAppointment(string) const
+        +virtual string getTypeName() const = 0
+        +virtual int getPriority() const = 0
+        +virtual void displayInfo(ostream& os) const = 0
+        +virtual string serialize() const = 0
+        +virtual unique_ptr~PatientRecord~ clone() const = 0
+    }
+
+    %% GeneralPatient
+    class GeneralPatient {
+        -string reasonForVisit_
+        +GeneralPatient(string, string, int, string, string = "")
+        +string getTypeName() const override
+        +int getPriority() const override
+        +void displayInfo(ostream& os) const override
+        +string serialize() const override
+        +unique_ptr~PatientRecord~ clone() const override
+        +bool scheduleAppointment(string, string, string) override
+        +bool cancelAppointment(string) override
+        +const string& reasonForVisit() const
+        +void setReasonForVisit(string)
+    }
+
+    %% EmergencyPatient
+    class EmergencyPatient {
+        -int severityLevel_
+        -string description_
+        +EmergencyPatient(string, string, int, string, int = 3, string = "")
+        +string getTypeName() const override
+        +int getPriority() const override
+        +void displayInfo(ostream& os) const override
+        +string serialize() const override
+        +unique_ptr~PatientRecord~ clone() const override
+        +bool scheduleAppointment(string, string, string) override
+        +bool cancelAppointment(string) override
+        +int severityLevel() const
+        +void setSeverityLevel(int)
+        +const string& description() const
+        +void setDescription(string)
+        +string severityText() const
+    }
+
+    %% FollowUpPatient
+    class FollowUpPatient {
+        -string lastVisitDate_
+        -string reviewNote_
+        -int followUpCount_
+        +FollowUpPatient(string, string, int, string, string = "", string = "")
+        +string getTypeName() const override
+        +int getPriority() const override
+        +void displayInfo(ostream& os) const override
+        +string serialize() const override
+        +unique_ptr~PatientRecord~ clone() const override
+        +bool scheduleAppointment(string, string, string) override
+        +bool cancelAppointment(string) override
+        +const string& lastVisitDate() const
+        +void setLastVisitDate(string)
+        +const string& reviewNote() const
+        +void setReviewNote(string)
+        +int followUpCount() const
+        +void setFollowUpCount(int)
+    }
+
+    %% Appointment
+    class Appointment {
+        -string id_
+        -string patientId_
+        -string date_
+        -string time_
+        -string service_
+        -AppointmentStatus status_
+        +Appointment()
+        +Appointment(string, string, string, string, string, AppointmentStatus = Scheduled)
+        +const string& getId() const
+        +const string& getPatientId() const
+        +const string& getDate() const
+        +const string& getTime() const
+        +const string& getService() const
+        +AppointmentStatus getStatus() const
+        +void setStatus(AppointmentStatus)
+        +void setDate(string)
+        +void setTime(string)
+        +string dateTime() const
+        +static string statusText(AppointmentStatus)
+        +static AppointmentStatus statusFromText(string)
+        +string serialize() const
+        +static bool deserialize(string, Appointment& out)
+    }
+
+    %% ClinicDatabase
+    class ClinicDatabase {
+        -vector~unique_ptr~PatientRecord~~ patients_
+        -vector~Appointment~ appointments_
+        +void addPatient(unique_ptr~PatientRecord~)
+        +unique_ptr~PatientRecord~ removePatient(string)
+        +void insertPatient(unique_ptr~PatientRecord~)
+        +PatientRecord* findPatientRaw(string)
+        +const PatientRecord* findPatientRaw(string) const
+        +vector~unique_ptr~PatientRecord~~& patients()
+        +const vector~unique_ptr~PatientRecord~~& patients() const
+        +size_t patientCount() const
+        +void addAppointment(const Appointment&)
+        +bool removeAppointment(string)
+        +Appointment* findAppointment(string)
+        +const Appointment* findAppointment(string) const
+        +vector~Appointment~& appointments()
+        +const vector~Appointment~& appointments() const
+        +void clear()
+    }
+
+    %% ========================================================
+    %% CONTROLLER LAYER
+    %% ========================================================
+
+    class ClinicManager {
+        -ClinicDatabase db_
+        -queue~string~ waitQueue_
+        -map~string, long long~ arrivalEpoch_
+        -stack~UndoOperation~ undoStack_
+        -PatientRecord* recentPatients_[10]
+        -int cacheCount_
+        -int sortedByKey_
+        -string lastSortDescription_
+        +ClinicManager()
+        +string addPatient(string, string, int, string, string = "", string = "")
+        +void editPatient(string, string, int, string, string = "", string = "")
+        +void deletePatient(string)
+        +PatientRecord* getPatient(string)
+        +bool canUndo() const
+        +string undoLast()
+        +string peekUndo() const
+        +void enqueuePatient(string)
+        +string callNextPatient()
+        +vector~string~ queueSnapshot() const
+        +bool isInQueue(string) const
+        +long long frontWaitSeconds() const
+        +long long waitSecondsAt(size_t) const
+        +vector~const PatientRecord*~ recentRecords() const
+        +void processAllPatients(ostream& os) const
+        +void sortPatients(SortAlgorithm, SearchKey)
+        +bool isSortedBy(SearchKey) const
+        +static void applySort(SortAlgorithm, vector~unique_ptr~PatientRecord~~&, SearchKey, const ClinicDatabase&)
+        +string lastSortDescription() const
+        +void saveFiles(string)
+        +LoadResult loadFiles(string)
+        +void clearAll()
+        +Statistics computeStatistics() const
+        +ClinicDatabase& database()
+        +void pushCancelledAppointment(string, const Appointment&, string)
+    }
+
+    class AppointmentController {
+        -ClinicManager& manager_
+        +AppointmentController(ClinicManager&)
+        +string scheduleAppointment(string, string, string, string)
+        +void cancelAppointment(string)
+        +void completeAppointment(string)
+        +vector~const Appointment*~ appointmentsOf(string) const
+        +vector~const Appointment*~ appointmentsOn(string) const
+        +static bool isValidDate(string)
+        +static bool isValidTime(string)
+    }
+
+    class SearchEngine {
+        <<static utility>>
+        +static int linearSearchById(vector~unique_ptr~PatientRecord~~&, string)
+        +static int binarySearchByKey(vector~unique_ptr~PatientRecord~~&, string, SortKey, const ClinicDatabase&)
+        +static vector~int~ recursiveNameSearch(vector~unique_ptr~PatientRecord~~&, string)
+        +static void selectionSort(vector~unique_ptr~PatientRecord~~&, SortKey, const ClinicDatabase&)
+        +static void insertionSort(vector~unique_ptr~PatientRecord~~&, SortKey, const ClinicDatabase&)
+        +static void mergeSort(vector~unique_ptr~PatientRecord~~&, SortKey, const ClinicDatabase&)
+        +static string keyOf(const PatientRecord&, SortKey, const ClinicDatabase&)
+        +static string keyName(SortKey)
+    }
+
+    %% ========================================================
+    %% GUI LAYER
+    %% ========================================================
+
+    class MainWindow {
+        -ClinicManager manager_
+        -AppointmentController appointments_
+        -QTabWidget* tabs_
+        -PatientPanel* patientPanel_
+        -AppointmentPanel* appointmentPanel_
+        -QueuePanel* queuePanel_
+        -SearchSortPanel* searchPanel_
+        -AdminPanel* adminPanel_
+        -QLabel* statusStatsLabel_
+        -QTimer* timer_
+        +MainWindow(QWidget* parent = nullptr)
+        +void onDataChanged()
+        +void onNew()
+        +void onSave()
+        +void onLoad()
+        +void onExport()
+        +void onImport()
+        +void onUndo()
+        +void onShowSearch()
+        +void onTick()
+        +void about()
+    }
+
+    class PatientPanel {
+        -ClinicManager& manager_
+        -QTableWidget* table_
+        -QLineEdit* idLabel_
+        -QComboBox* typeCombo_
+        -QLineEdit* nameEdit_
+        -QSpinBox* ageSpin_
+        -QLineEdit* contactEdit_
+        -QStackedWidget* extrasStack_
+        -QLineEdit* reasonEdit_
+        -QComboBox* severityCombo_
+        -QLineEdit* descEdit_
+        -QLineEdit* lastVisitEdit_
+        -QLineEdit* noteEdit_
+        -QPushButton* addButton_
+        -QPushButton* updateButton_
+        -QPushButton* deleteButton_
+        -QLabel* hintLabel_
+        -string selectedPatientId_
+        +PatientPanel(ClinicManager&, QWidget* = nullptr)
+        +void refresh()
+    }
+
+    class AppointmentPanel {
+        -ClinicManager& manager_
+        -AppointmentController& controller_
+        -QComboBox* patientCombo_
+        -QDateEdit* dateEdit_
+        -QTimeEdit* timeEdit_
+        -QLineEdit* serviceEdit_
+        -QTableWidget* table_
+        -QPushButton* scheduleButton_
+        -QPushButton* cancelButton_
+        -QPushButton* completeButton_
+        +AppointmentPanel(ClinicManager&, AppointmentController&, QWidget* = nullptr)
+        +void refresh()
+        +void refreshPatients()
+    }
+
+    class QueuePanel {
+        -ClinicManager& manager_
+        -QComboBox* patientCombo_
+        -QPushButton* enqueueButton_
+        -QPushButton* callNextButton_
+        -QTableWidget* table_
+        -QLabel* frontLabel_
+        +QueuePanel(ClinicManager&, QWidget* = nullptr)
+        +void refresh()
+        +void refreshPatients()
+    }
+
+    class SearchSortPanel {
+        -ClinicManager& manager_
+        -QLineEdit* searchEdit_
+        -QComboBox* modeCombo_
+        -QTableWidget* results_
+        -QLabel* resultsInfo_
+        -QComboBox* algoCombo_
+        -QComboBox* keyCombo_
+        -QPushButton* sortButton_
+        -QLabel* sortInfo_
+        -QLabel* algoExplanation_
+        +SearchSortPanel(ClinicManager&, QWidget* = nullptr)
+        +void refresh()
+        +void focusSearch()
+    }
+
+    class AdminPanel {
+        -ClinicManager& manager_
+        -QLabel* statsLabel_
+        -QLabel* undoHintLabel_
+        -QPushButton* undoButton_
+        -QTableWidget* cacheTable_
+        -QPlainTextEdit* reportView_
+        -QPushButton* reportButton_
+        -QLabel* reminderLabel_
+        +AdminPanel(ClinicManager&, QWidget* = nullptr)
+        +void refresh()
+        +void updateReminders(string)
+        +void onUndoClicked()
+    }
+
+    class GuiHelpers {
+        <<inline helpers>>
+        +static QString toQt(const string&)
+        +static string toStd(const QString&)
+        +static QColor colorForPatientType(string)
+        +static QColor colorForAppointmentStatus(AppointmentStatus)
+        +static QTableWidgetItem* plainItem(QString)
+        +static void paintRow(QTableWidget*, int, QColor)
+        +static string patientDetails(const PatientRecord*)
+    }
+
+    %% ========================================================
+    %% RELATIONSHIPS
+    %% ========================================================
+
+    %% Inheritance (solid line, hollow triangle in Mermaid: <-- )
+    Appointable <|-- PatientRecord
+    PatientRecord <|-- GeneralPatient
+    PatientRecord <|-- EmergencyPatient
+    PatientRecord <|-- FollowUpPatient
+
+    %% Polymorphism: PatientRecord holds vector of linked Appointment IDs (composition)
+    PatientRecord "1" *-- "many" Appointment : appointmentIds_
+
+    %% ClinicDatabase owns patients (composition via unique_ptr)
+    ClinicDatabase "1" *-- "many" PatientRecord : patients_
+    ClinicDatabase "1" -- "many" Appointment : appointments_
+
+    %% ClinicManager uses ClinicDatabase
+    ClinicManager "1" *-- "1" ClinicDatabase : db_
+
+    %% ClinicManager uses SearchEngine (static calls)
+    ClinicManager ..> SearchEngine : sort/search calls
+
+    %% AppointmentController uses ClinicManager
+    AppointmentController ..> ClinicManager : manager_
+
+    %% GUI panels reference controllers
+    MainWindow ..> ClinicManager : manager_
+    MainWindow ..> AppointmentController : appointments_
+    PatientPanel ..> ClinicManager : manager_
+    AppointmentPanel ..> ClinicManager : manager_
+    AppointmentPanel ..> AppointmentController : controller_
+    QueuePanel ..> ClinicManager : manager_
+    SearchSortPanel ..> ClinicManager : manager_
+    AdminPanel ..> ClinicManager : manager_
+
+    %% MainWindow owns all panels (aggregation/composition via Qt parent-child)
+    MainWindow "1" o-- "5" PatientPanel : tabs
+    MainWindow "1" o-- "5" AppointmentPanel : tabs
+    MainWindow "1" o-- "5" QueuePanel : tabs
+    MainWindow "1" o-- "5" SearchSortPanel : tabs
+    MainWindow "1" o-- "5" AdminPanel : tabs
+
+    %% Panels notify MainWindow via signals (dependency)
+    PatientPanel ..> MainWindow : dataChanged() signal
+    AppointmentPanel ..> MainWindow : dataChanged() signal
+    QueuePanel ..> MainWindow : dataChanged() signal
+    SearchSortPanel ..> MainWindow : dataChanged() signal
+    AdminPanel ..> MainWindow : dataChanged() signal
+
+    %% GuiHelpers used across GUI
+    PatientPanel ..> GuiHelpers
+    AppointmentPanel ..> GuiHelpers
+    QueuePanel ..> GuiHelpers
+    SearchSortPanel ..> GuiHelpers
+    AdminPanel ..> GuiHelpers
+
+    %% ========================================================
+    %% LEGEND
+    %% ========================================================
+
+    %% Notes for clarity
+    note for Appointable : <<abstract>> - pure virtual interface
+    note for PatientRecord : <<abstract>> - base class with pure virtuals
+    note for ClinicManager : std::stack undoStack_\nstd::queue waitQueue_\nPatientRecord*[10] cache
+    note for SearchEngine : Manual algorithms only\n(no std::sort/std::find)
+```

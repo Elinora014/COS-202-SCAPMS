@@ -1,0 +1,97 @@
+[
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/model/PatientRecord.cpp -o /tmp/model_PatientRecord.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/model/PatientRecord.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/model/GeneralPatient.cpp -o /tmp/model_GeneralPatient.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/model/GeneralPatient.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/model/EmergencyPatient.cpp -o /tmp/model_EmergencyPatient.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/model/EmergencyPatient.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/model/FollowUpPatient.cpp -o /tmp/model_FollowUpPatient.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/model/FollowUpPatient.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/model/Appointment.cpp -o /tmp/model_Appointment.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/model/Appointment.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/model/ClinicDatabase.cpp -o /tmp/model_ClinicDatabase.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/model/ClinicDatabase.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/controller/SearchEngine.cpp -o /tmp/controller_SearchEngine.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/controller/SearchEngine.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/controller/ClinicManager.cpp -o /tmp/controller_ClinicManager.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/controller/ClinicManager.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/controller/AppointmentController.cpp -o /tmp/controller_AppointmentController.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/controller/AppointmentController.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/utils/IDGenerator.cpp -o /tmp/utils_IDGenerator.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/utils/IDGenerator.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/utils/FileHandler.cpp -o /tmp/utils_FileHandler.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/utils/FileHandler.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/gui/MainWindow.cpp -o /tmp/gui_MainWindow.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/gui/MainWindow.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/gui/PatientPanel.cpp -o /tmp/gui_PatientPanel.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/gui/PatientPanel.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/gui/AppointmentPanel.cpp -o /tmp/gui_AppointmentPanel.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/gui/AppointmentPanel.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/gui/QueuePanel.cpp -o /tmp/gui_QueuePanel.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/gui/QueuePanel.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/gui/SearchSortPanel.cpp -o /tmp/gui_SearchSortPanel.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/gui/SearchSortPanel.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/gui/AdminPanel.cpp -o /tmp/gui_AdminPanel.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/gui/AdminPanel.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/main.cpp -o /tmp/main.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/main.cpp"
+  },
+  {
+    "directory": "/home/wizzol/Desktop/SCAPMS/build",
+    "command": "-pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/home/wizzol/Desktop/SCAPMS -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include/qt -I/home/wizzol/anaconda3/include/qt/QtWidgets -I/home/wizzol/anaconda3/include/qt/QtGui -I/home/wizzol/anaconda3/include/qt/QtCore -I/home/wizzol/Desktop/SCAPMS/build -I/home/wizzol/anaconda3/include -I/home/wizzol/anaconda3/mkspecs/linux-g++ -c /home/wizzol/Desktop/SCAPMS/anaconda3/mkspecs/features/data/dummy.cpp -o /tmp/anaconda3_mkspecs_features_data_dummy.o",
+    "file": "/home/wizzol/Desktop/SCAPMS/anaconda3/mkspecs/features/data/dummy.cpp"
+  }
+]
